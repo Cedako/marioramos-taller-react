@@ -5,31 +5,31 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </div>
 )
-const Content = ({t,e}) => (
+const Content = ({o}) => (
   <>
-    {t.map((topic,i)=><p>{topic} {e[i]}</p>)}
+    {o.map((object)=><p>{object.title} {object.excercises}</p>)}
   </>
 )
-const Total = ({e1,e2,e3}) => (
-  <>
-    <p>Number of exercises = {e1+e2+e3}</p>
-  </>
-)
+const Total = ({e}) => {
+  var total = 0;
+  e.map((number)=>total+=number.excercises)
+  return (<>
+    <p>Number of exercises = {total}</p>
+  </>)
+}
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10;
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7;
-  const part3 = 'State of a component'
-  const exercises3 = 14;
-  const parts = [part1, part2, part3];
-  const exercises = [exercises1,exercises2,exercises3];
+  const body = [
+    {title: 'Fundamentals of React',excercises:10},
+    {title: 'Using props to pass data',excercises:7},
+    {title: 'State of a component',excercises:14},
+    {title: 'Test',excercises:9}
+  ]
   return (
     <div>
       <Header title={course} />
-      <Content t={parts} e={exercises}/>
-      <Total e1={exercises1} e2={exercises2} e3={exercises3}/>
+      <Content o={body}/>
+      <Total e={body}/>
     </div>
   )
 }
