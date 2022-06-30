@@ -5,9 +5,11 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </div>
 )
-const Content = ({topic, exercises}) => (
+const Content = ({t1, e1, t2, e2, t3, e3}) => (
   <>
-    <p>{topic} {exercises}</p>
+    <p>{t1} {e1}</p>
+    <p>{t2} {e2}</p>
+    <p>{t3} {e3}</p>
   </>
 )
 const Total = ({e1,e2,e3}) => (
@@ -27,9 +29,7 @@ const App = () => {
   return (
     <div>
       <Header title={course} />
-      <Content topic={part1} exercises={exercises1}/>
-      <Content topic={part2} exercises={exercises2}/>
-      <Content topic={part3} exercises={exercises3}/>
+      <Content t1={part1} e1={exercises1} t2={part2} e2={exercises2} t3={part3} e3={exercises3}/>
       <Total e1={exercises1} e2={exercises2} e3={exercises3}/>
     </div>
   )
