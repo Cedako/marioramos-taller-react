@@ -5,11 +5,9 @@ const Header = ({ title }) => (
       <h1>{title}</h1>
     </div>
 )
-const Content = ({t1, e1, t2, e2, t3, e3}) => (
+const Content = ({t,e}) => (
   <>
-    <p>{t1} {e1}</p>
-    <p>{t2} {e2}</p>
-    <p>{t3} {e3}</p>
+    {t.map((topic,i)=><p>{topic} {e[i]}</p>)}
   </>
 )
 const Total = ({e1,e2,e3}) => (
@@ -25,11 +23,12 @@ const App = () => {
   const exercises2 = 7;
   const part3 = 'State of a component'
   const exercises3 = 14;
-
+  const parts = [part1, part2, part3];
+  const exercises = [exercises1,exercises2,exercises3];
   return (
     <div>
       <Header title={course} />
-      <Content t1={part1} e1={exercises1} t2={part2} e2={exercises2} t3={part3} e3={exercises3}/>
+      <Content t={parts} e={exercises}/>
       <Total e1={exercises1} e2={exercises2} e3={exercises3}/>
     </div>
   )
