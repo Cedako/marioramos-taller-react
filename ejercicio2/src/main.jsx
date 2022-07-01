@@ -24,9 +24,11 @@ const App = () => {
     <p>Bad: {bad}</p>
     <br/>
     <p>Total: {total}</p>
-    <p>Average: {score/total}</p>
-    <p>Acceptance: {(good/total)*100}%</p>
+    <p>Average: {score/total | 0}</p>
+    <p>Acceptance: {(good/total)*100 | 0}%</p>
     </div>
+    /*Operador OR , parecido al operador ternario, ejecuta la instrucción de la izquierda, de no ser posible
+    ejecuta la instrucción de la derecha*/
   )
 }
 
